@@ -39,7 +39,7 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
-.idea/workspace.xml
+**/.idea/workspace.xml
 
 # Other binaries and packages
 *.so
