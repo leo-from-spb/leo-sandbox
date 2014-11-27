@@ -11,6 +11,8 @@ public class Long1 {
 
         MeasureIntCounter();
         MeasureLongCounter();
+        MeasureBoxingIntCounter();
+        MeasureBoxingLongCounter();
 
         System.out.println("End");
     }
@@ -20,7 +22,7 @@ public class Long1 {
         sleep(400);
         long timestamp1 = System.currentTimeMillis();
         int x = 0;
-        for (int a = 1; a < 100000000; a++) {
+        for (int a = 1; a <= 100000000; a++) {
             for (int b = 1; b < 20; b++) {
                 x = (x >> 1) + (a - b);
             }
@@ -34,8 +36,38 @@ public class Long1 {
         sleep(400);
         long timestamp1 = System.currentTimeMillis();
         long x = 0;
-        for (long a = 1; a < 100000000; a++) {
+        for (long a = 1; a <= 100000000; a++) {
             for (long b = 1; b < 20; b++) {
+                x = (x >> 1) + (a - b);
+            }
+        }
+        long time = System.currentTimeMillis() - timestamp1;
+        System.out.println("x = " + x);
+        System.out.println("Long counters time: " + time);
+    }
+
+    private static void MeasureBoxingIntCounter() {
+        System.gc();
+        sleep(400);
+        long timestamp1 = System.currentTimeMillis();
+        Integer x = 0;
+        for (int a = 1; a <= 100000000; a++) {
+            for (int b = 1; b < 20; b++) {
+                x = (x >> 1) + (a - b);
+            }
+        }
+        long time = System.currentTimeMillis() - timestamp1;
+        System.out.println("x = " + x);
+        System.out.println("Int counters time: " + time);
+    }
+
+    private static void MeasureBoxingLongCounter() {
+        System.gc();
+        sleep(400);
+        long timestamp1 = System.currentTimeMillis();
+        Long x = 0L;
+        for (long a = 1; a <= 100000000; a++) {
+            for (Long b = 1L; b < 20L; b++) {
                 x = (x >> 1) + (a - b);
             }
         }
