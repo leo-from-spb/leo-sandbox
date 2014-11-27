@@ -3,8 +3,8 @@
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
-      <env name="TEAMCITY_VERSION" value="8.1" />
       <env name="PYTHONUNBUFFERED" value="1" />
+      <env name="TEAMCITY_VERSION" value="8.1" />
     </envs>
     <option name="SDK_HOME" value="C:/App/Python/classic.2.7/python.exe" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/runner_demo" />
