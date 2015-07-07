@@ -1,6 +1,6 @@
 __author__ = 'Leonid.Bushuev'
 
-
+import sys
 
 def calculate_and_print():
 
@@ -39,5 +39,7 @@ print("=====================")
 
 calculate_and_print()
 
+
+sys.exit(0)
 
 
