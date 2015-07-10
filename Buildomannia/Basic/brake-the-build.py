@@ -15,9 +15,9 @@ def brake_the_build():
     ]
 
 
-    N = 50
+    N = 60
     M1 = 1
-    M2 = 9
+    M2 = 4
     P = 1.0
 
     print("Braking the build")
