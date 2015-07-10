@@ -38,7 +38,7 @@ def brake_the_build():
 
         print(f)
 
-        p = 1.0 * P * k / N
+        p = 1.0 * P * k / (N + 0.9)
         chN = random.randint(M1,M2)
         for ch in range(1,chN):
             # decide to brake right now
