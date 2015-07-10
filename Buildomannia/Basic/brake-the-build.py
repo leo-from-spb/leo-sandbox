@@ -15,7 +15,7 @@ def brake_the_build():
     ]
 
 
-    N = 40
+    N = 50
     M1 = 1
     M2 = 9
     P = 1.0
@@ -43,6 +43,7 @@ def brake_the_build():
         for ch in range(1,chN):
             # decide to brake right now
             filename = ""
+            cnr = cnr + 1
             to_brake = not broken and random.random() < p
             if to_brake:
                 # brake the build
@@ -53,10 +54,9 @@ def brake_the_build():
             else:
                 # change a file
                 with open("x-file.txt", 'a') as file:
-                    file.write("Hello\n")
+                    file.write("Hello %d \n" % cnr)
                 filename = "x-file.txt"
 
-            cnr = cnr + 1
             comment = "Evil %d" % cnr
             call(["git", "add", filename])
             call(["git", "commit", "--author='%s'"%f, "-m", comment])
