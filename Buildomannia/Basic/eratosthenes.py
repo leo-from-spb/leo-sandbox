@@ -53,3 +53,5 @@ calculate_and_print()
 
 
 
+exit(-1)
+
