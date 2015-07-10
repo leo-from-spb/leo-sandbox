@@ -28,6 +28,7 @@ def brake_the_build():
     broken = False
     comment_nr = 0
     f_prev = ''
+    cnr = 0
 
     for k in range(1,N):
 
@@ -54,8 +55,11 @@ def brake_the_build():
                 with open("x-file.txt", 'a') as file:
                     file.write("Hello\n")
                 filename = "x-file.txt"
+
+            cnr = cnr + 1
+            comment = "Evil %d" % cnr
             call(["git", "add", filename])
-            call(["git", "commit", "--author='%s'"%f, "-m", "evil"])
+            call(["git", "commit", "--author='%s'"%f, "-m", comment])
 
         f_prev = f
 
