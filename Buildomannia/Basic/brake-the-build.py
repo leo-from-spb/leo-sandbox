@@ -15,7 +15,7 @@ def brake_the_build():
     ]
 
 
-    N = 60
+    N = 100
     M1 = 1
     M2 = 4
     P = 1.0
