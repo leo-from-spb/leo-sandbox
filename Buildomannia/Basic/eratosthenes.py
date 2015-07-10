@@ -50,6 +50,3 @@ calculate_and_print()
 
 
 # exit(0)
-
-exit(-1)
-
