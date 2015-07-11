@@ -57,7 +57,7 @@ def brake_the_build():
                     file.write("Hello %d \n" % cnr)
                 filename = "x-file.txt"
 
-            comment = "Evil %d" % cnr
+            comment = "Evil change %d" % cnr
             call(["git", "add", filename])
             call(["git", "commit", "--author='%s'"%f, "-m", comment])
 
