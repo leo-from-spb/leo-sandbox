@@ -1,0 +1,13 @@
+DEMO_FILE: just a file
+
+    Section A: the first section
+
+        Node 1:  something
+        Node 2:  something else
+
+    Section B: the second section
+
+        Node 3: xxx
+        Node 4: yyy
+        Node 5: zzz
+
