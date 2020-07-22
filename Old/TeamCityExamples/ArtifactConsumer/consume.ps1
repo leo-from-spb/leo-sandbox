@@ -1,1 +1,0 @@
-Measure-Command { ./chest.cmd }
