@@ -6,11 +6,11 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="lb.sandbox.kotlino" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="lb.sandbox.kotlino" />
     </content>
-    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="kotlin-stdlib-jdk8" level="project" />
     <orderEntry type="library" name="kotlin-reflect" level="project" />
-    <orderEntry type="module" module-name="Java11" />
+    <orderEntry type="module" module-name="Java17" />
     <orderEntry type="library" scope="TEST" name="junit-jupiter" level="project" />
   </component>
 </module>
