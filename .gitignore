@@ -1,5 +1,6 @@
 *.class
 */out
+out
 
 # Package Files #
 *.jar
