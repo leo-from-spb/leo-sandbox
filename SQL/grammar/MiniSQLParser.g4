@@ -7,72 +7,70 @@ options {
 
 
 
-query: querySection+ EOF
-    ;
+query		: querySection+ EOF
+		;
 
-querySection
-    : sectionWith
-    | sectionSelect
-    | sectionFrom
-    | sectionWhere
-    | sectionGroup
-    | sectionHaving
-    | sectionOrder
-    ;
+querySection	: sectionWith
+		| sectionSelect
+		| sectionFrom
+		| sectionWhere
+		| sectionGroup
+		| sectionHaving
+		| sectionOrder
+		;
 
-sectionWith: WITH;
+sectionWith	: WITH
+		;
 
-sectionSelect: SELECT selectItem (COMMA selectItem)*;
+sectionSelect	: SELECT selectItem (COMMA selectItem)*
+		;
 
-sectionFrom: FROM relationship (COMMA relationship)*;
+sectionFrom	: FROM relationship (COMMA relationship)*
+		;
 
-relationship
-    : tableA (joinPhrase tableA joinCondition?)*
-    ;
+relationship	: tableA (joinPhrase tableA joinCondition?)*
+		;
 
-tableA
-    : table (AS? alias=id)?
-    ;
+tableA		: table (AS? alias=id)?
+		;
 
-table
-    : thing
-    | LP relationship RP
-    ;
+table		: thing
+		| LP relationship RP
+		;
 
-joinPhrase
-    : LEFT OUTER? JOIN
-    | INNER? JOIN
-    | NATURAL JOIN
-    | CROSS JOIN
-    ;
+joinPhrase	: LEFT OUTER? JOIN
+		| INNER? JOIN
+		| NATURAL JOIN
+		| CROSS JOIN
+		;
 
-joinCondition
-    : expr
-    ;
+joinCondition	: expr
+		;
 
 
-sectionWhere: WHERE bool;
+sectionWhere	: WHERE bool
+		;
 
-sectionGroup: GROUP BY expr (COMMA expr)*;
+sectionGroup	: GROUP BY expr (COMMA expr)*
+		;
 
-sectionHaving: HAVING bool;
+sectionHaving	: HAVING bool
+		;
 
-sectionOrder: ORDER BY orderItem (COMMA orderItem)*;
+sectionOrder	: ORDER BY orderItem (COMMA orderItem)*
+		;
 
-orderItem
-    : expr
-    ;
+orderItem	: expr
+		;
 
-selectItem
-    : STAR
-    | expr (AS? alias=id)?
-    ;
+selectItem	: STAR
+		| expr (AS? alias=id)?
+		;
 
 
-literal
-    : INT
-    | FLOAT
-    ;
+literal		: INT
+		| FLOAT
+		;
 
 
 //bool
@@ -120,15 +118,15 @@ expr2   : literal                               #ExprLiteral
 funParameters   : funParameter (COMMA funParameter)*
                 ;
 
-funParameter    : expr                       #FunParameterSimple
-                | id EQTO expr               #FunParameterNamed
+funParameter    : expr                       	#FunParameterSimple
+                | id EQTO expr               	#FunParameterNamed
                 ;
 
 thing   : id (DOT id)*
         ;
 
-id      : PLAIN_ID                           #IdPlain
-        | QUOTED_ID                          #IdQuoted
+id      : PLAIN_ID                           	#IdPlain
+        | QUOTED_ID                          	#IdQuoted
         ;
 
 
