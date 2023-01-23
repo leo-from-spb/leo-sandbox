@@ -7,7 +7,7 @@ options {
 
 
 
-query: querySection+
+query: querySection+ EOF
     ;
 
 querySection
@@ -35,7 +35,7 @@ tableA
     ;
 
 table
-    : id
+    : thing
     | LP relationship RP
     ;
 
@@ -64,7 +64,7 @@ orderItem
     ;
 
 selectItem
-    : ASTERIX
+    : STAR
     | expr (AS? alias=id)?
     ;
 
@@ -85,32 +85,51 @@ literal
 //    | id
 //    ;
 
-bool   : bool1 (OR bool1)*;
-bool1  : bool2 (AND bool2)*;
-bool2  : (TRUE | FALSE)
-       | LP bool RP
-       | NOT bool2
-       | expr IS NOT? NULL
-       | expr (LT|LE|GT|GE|EQ|NE) expr
-       | expr BETWEEN expr AND expr
-       | expr IN LP expr (COMMA expr)* RP
-       | id
-       ;
+
+bool    : bool1 (OR bool1)*                     #BoolOr
+        ;
+bool1   : bool2 (AND bool2)*                    #BoolAnd
+        ;
+bool2   : (TRUE | FALSE)                        #BoolLiteral
+        | cortege (EQ|NE) cortege               #BoolCompareCortegen
+        | LP bool RP                            #BoolParentheses
+        | NOT bool2                             #BoolNot
+        | expr IS NOT? NULL                     #BoolNullability
+        | expr (LT|LE|GT|GE|EQ|NE) expr         #BoolComparison
+        | expr BETWEEN expr AND expr            #BoolBetween
+        | expr IN LP expr (COMMA expr)* RP      #BoolIn
+        | thing                                 #BoolId
+        ;
 
 
-expr
-    : literal
-    | id
-    | LP expr RP
-    | expr (MULT | DIV) expr
-    | expr (PLUS | MINUS) expr
-    ;
+cortege : LP expr (COMMA expr)* RP
+        ;
 
 
-id
-    : PLAIN_ID
-    | QUOTED_ID
-    ;
+expr    : expr1 ((PLUS | MINUS) expr1)*         #ExprPlusMinus
+        ;
+expr1   : expr2 ((STAR | DIV) expr2)*           #ExprMultDiv
+        ;
+expr2   : literal                               #ExprLiteral
+        | LP expr RP                            #ExprParentheses
+        | thing LP parameters=funParameters? RP #ExprCallFun
+        | thing                                 #ExprThing
+        ;
+
+
+funParameters   : funParameter (COMMA funParameter)*
+                ;
+
+funParameter    : expr                       #FunParameterSimple
+                | id EQTO expr               #FunParameterNamed
+                ;
+
+thing   : id (DOT id)*
+        ;
+
+id      : PLAIN_ID                           #IdPlain
+        | QUOTED_ID                          #IdQuoted
+        ;
 
 
 

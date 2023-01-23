@@ -25,7 +25,9 @@ NOT             : 'NOT';
 NULL            : 'NULL';
 OR              : 'OR';
 ORDER           : 'ORDER';
+OUT             : 'OUT';
 OUTER           : 'OUTER';
+RETURN          : 'RETURN';
 SELECT          : 'SELECT';
 WHERE           : 'WHERE';
 TRUE            : 'TRUE';
@@ -39,11 +41,13 @@ PLAIN_ID    : [A-Z] [A-Z0-9$#_]*;
 QUOTED_ID   : '"' .*? '"';
 
 
-ASTERIX     : '*';
+STAR        : '*';
 COMMA       : ',';
-//DOT         : '.';
+DOT         : '.';
 LP          : '(';
 RP          : ')';
+
+EQTO        : '=>';
 
 LT          : '<';
 LE          : '<=';
@@ -55,7 +59,6 @@ NE          : '!=' | '<>';
 
 PLUS        : '+';
 MINUS       : '-';
-MULT        : ASTERIX;
 DIV         : '/';
 
 
