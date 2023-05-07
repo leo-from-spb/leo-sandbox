@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Java17/Java17.iml" filepath="$PROJECT_DIR$/Java17/Java17.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java21/Java21.iml" filepath="$PROJECT_DIR$/Java21/Java21.iml" />
       <module fileurl="file://$PROJECT_DIR$/Kotlino/Kotlino.iml" filepath="$PROJECT_DIR$/Kotlino/Kotlino.iml" />
       <module fileurl="file://$PROJECT_DIR$/SQL/SQL.iml" filepath="$PROJECT_DIR$/SQL/SQL.iml" />
     </modules>
