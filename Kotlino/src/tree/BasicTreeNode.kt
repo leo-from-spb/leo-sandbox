@@ -1,9 +1,8 @@
 package lb.sandbox.kotlino.tree
 
-import lb.sandbox.java11.tree.TreeChildNode
-import lb.sandbox.java11.tree.TreeNode
-import lb.sandbox.java11.tree.TreeParentNode
-import java.util.*
+import lb.sandbox.java17.tree.TreeChildNode
+import lb.sandbox.java17.tree.TreeNode
+import lb.sandbox.java17.tree.TreeParentNode
 import java.util.Collections.emptySet
 
 open class BasicTreeNode<N : BasicTreeNode<N>> : TreeNode, TreeParentNode<N>, TreeChildNode<N> {
