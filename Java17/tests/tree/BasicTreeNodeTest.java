@@ -1,9 +1,10 @@
-package lb.sandbox.java11.tree;
+package lb.sandbox.java17.tree;
 
 import org.jetbrains.annotations.Nullable;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 /**
  *
