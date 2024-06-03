@@ -1,6 +1,5 @@
-*.class
-
-# Package Files #
+# Non-applicable Files #
 *.jar
 *.war
 *.ear
+*.exe

@@ -1,4 +1,4 @@
-leo-sandbox
+Leo Sandbox
 ===========
 
-My Sand Box to share/discuss code snippets with my colleagues
+My revived Sandbox to share/discuss code snippets with my colleagues
