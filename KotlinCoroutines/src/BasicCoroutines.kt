@@ -1,4 +1,6 @@
 import kotlinx.coroutines.*
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 object BasicCoroutines {
 
@@ -32,9 +34,34 @@ object BasicCoroutines {
     suspend fun doMore(infix: String) {
         printCurrentThreadName("More $infix start")
         delay(42)
-        yield()
+
+        "A".also2 {
+            doSomethingElse()
+        }
+
         printCurrentThreadName("More $infix end")
     }
+
+    private suspend fun doSomethingElse() {
+        yield()
+    }
+
+
+    inline fun <T> T.also2(block: (T) -> Unit): T {
+        contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+        block(this)
+        return this
+    }
+
+
+    fun sequence9(): Sequence<String> =
+        sequence {
+            for (c1 in 'A'..'C') {
+                for (c2 in 'X'..'Z') {
+                    yield("$c1$c2")
+                }
+            }
+        }
 
 
 
